@@ -64,7 +64,7 @@ public class CobolParser {
 		
 		a.add( constantValue() );
 		
-		
+	
 		
 		a.add(new Empty());
 		return a;
@@ -168,6 +168,8 @@ public class CobolParser {
 		s.add(new Symbol("-"));
 		s.add(new Symbol("-"));
 		s.add(new Symbol("-"));
+		Alternation a = new Alternation();
+		a.
 		s.add(new Word().setAssembler(new CommentLineAssembler()));
 		return s;
 	}
