@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 import cobol.Cobol;
@@ -30,16 +32,22 @@ public class TokeinzerTests {
 		//assertEquals(c.getProgram_ID(), "base_jb12");
 		
 
-                //Tokenises a string and returns the token
-		Tokenizer t = new Tokenizer("test");
-                System.out.println((Token) t.nextToken());
+        //Testing the Tokenizer
+		Tokenizer t = new Tokenizer("test hey");
+		try {
+			assertEquals(t.nextToken().toString(), "test");
+			assertNotEquals(t.nextToken().toString(), "test");
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail();
+		}
 
 		
 		//Testing Token Assembly
-		System.out.println("Test");
-		TokenAssembly ta = new TokenAssembly("token1 token2");
-		assertEquals(ta.remainder("/"), "token1/token2");
-		System.out.println(ta.remainder("/"));
+//		System.out.println("Test");
+//		TokenAssembly ta = new TokenAssembly("token1 token2");
+//		assertEquals(ta.remainder("/"), "token1/token2");
+//		System.out.println(ta.remainder("/"));
 	}
 
 }

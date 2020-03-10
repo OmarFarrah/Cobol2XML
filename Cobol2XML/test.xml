@@ -28,4 +28,7 @@
 <base_16 Value="16.0"/>
 </Constant>
 <division>procedure</division>
+<comment>convert from decimal to base system</comment>
+<comment>convert from base to dicimal system</comment>
+<comment>allineamento a destra della variabile entry_char ( ver 2.3 0.1 o sup )</comment>
 </cobol>
