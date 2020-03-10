@@ -19,10 +19,12 @@ public class AssemblyTests {
 		Tokenizer t = CobolParser.tokenizer();
 		Parser p = CobolParser.start();
 		
-		t.setString("19 age value 12.");
-		Assembly tA = new TokenAssembly(t);
+//		t.setString("19 age value 12.");
+		Assembly tA = new TokenAssembly("19 age value 12.");
 		
-		assertEquals(tA.length(), 4);
+		System.out.println()
+		
+//		assertEquals(tA.remainder(" "), "19 age value 12.");
 		
 		t.setString("19 value 12.");
 		Assembly tA2 = new TokenAssembly(t);

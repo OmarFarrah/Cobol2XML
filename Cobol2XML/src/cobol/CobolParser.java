@@ -168,8 +168,6 @@ public class CobolParser {
 		s.add(new Symbol("-"));
 		s.add(new Symbol("-"));
 		s.add(new Symbol("-"));
-		Alternation a = new Alternation();
-		a.
 		s.add(new Word().setAssembler(new CommentLineAssembler()));
 		return s;
 	}

@@ -21,5 +21,4 @@ public class CobolTests {
 		
 		assertNotEquals(c.toString(), "1123, YMN, test");
 	}
-
 }

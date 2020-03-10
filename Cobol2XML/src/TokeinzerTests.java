@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 import cobol.Cobol;
@@ -15,27 +17,37 @@ public class TokeinzerTests {
 
 	@Test
 	public void testTokenizer() {
-		Tokenizer t = CobolParser.tokenizer();
-		Parser p = CobolParser.start();
+		//Tokenizer t = CobolParser.tokenizer();
+		//Parser p = CobolParser.start();
 		
-//		t.setCharacterState(   0,   ' ', new WhitespaceState());
+//		//t.setCharacterState(   0,   ' ', new WhitespaceState());
 		
-		t.setString("program-id. base_jb12");
-		Assembly in = new TokenAssembly(t);
-		Assembly out = p.bestMatch(in);
+		//t.setString("program-id. base_jb12");
+		//Assembly in = new TokenAssembly(t);
+		//Assembly out = p.bestMatch(in);
 	
-		Cobol c = new Cobol();
-		c = (Cobol) out.getTarget();
+		//Cobol c = new Cobol();
+		//c = (Cobol) out.getTarget();
 		
-		assertEquals(c.getProgram_ID(), "base_jb12");
+		//assertEquals(c.getProgram_ID(), "base_jb12");
 		
-		
+
+        //Testing the Tokenizer
+		Tokenizer t = new Tokenizer("test hey");
+		try {
+			assertEquals(t.nextToken().toString(), "test");
+			assertNotEquals(t.nextToken().toString(), "test");
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail();
+		}
+
 		
 		//Testing Token Assembly
-		System.out.println("Test");
-		TokenAssembly ta = new TokenAssembly("token1 token2");
-		assertEquals(ta.remainder("/"), "token1/token2");
-		System.out.println(ta.remainder("/"));
+//		System.out.println("Test");
+//		TokenAssembly ta = new TokenAssembly("token1 token2");
+//		assertEquals(ta.remainder("/"), "token1/token2");
+//		System.out.println(ta.remainder("/"));
 	}
 
 }
