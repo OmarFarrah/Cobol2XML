@@ -27,6 +27,11 @@
 <base_16 Line_Number="88"/>
 <base_16 Value="16.0"/>
 </Constant>
+<Variable>
+<Variable Name="hex_value"/>
+<hex_value Line_Number="5"/>
+<hex_value Info="x"/>
+</Variable>
 <division>procedure</division>
 <comment>convert from decimal to base system</comment>
 <comment>convert from base to dicimal system</comment>

@@ -130,6 +130,17 @@ public class XMLPayload {
 		} else {
 //			System.out.println("Constant name null");
 		}
+		/*
+		 *  add constant element
+		 */
+		String variableName = c.getVariableName();
+		if(variableName != null) {
+			this.addVariableInfoElement(variableName, c.getVariableInfo(), c.getLineNumber());
+//			System.out.println("Got section");
+			// Add contents of procedure division
+		} else {
+//			System.out.println("Variable name null");
+		}
 		
 		/*
 		 * add comments element
@@ -243,6 +254,37 @@ public class XMLPayload {
 			Element value = doc.createElement(constantName);
 			Attr attrType3 = doc.createAttribute("Value");
 			attrType3.setValue(Double.toString(constantValue));
+			value.setAttributeNode(attrType3);
+			cobolname.appendChild(value);
+			
+			rootElement.appendChild(cobolname);
+		}
+	}
+	
+	void addVariableInfoElement(String variableName, String variableInfo, int lineNumber) {
+		// Variable element
+		
+		if(variableName != null) {
+			Element cobolname = doc.createElement("Variable");
+			
+			// insert name of constant into XML file
+			Element constID = doc.createElement("Variable");
+			Attr attrType1 = doc.createAttribute("Name");
+			attrType1.setValue(variableName);
+			constID.setAttributeNode(attrType1);
+			cobolname.appendChild(constID); //add name element to 'Constant' element
+			
+			// insert line number of constant into XML file
+			Element lineID = doc.createElement(variableName);
+			Attr attrType2 = doc.createAttribute("Line_Number");
+			attrType2.setValue(Integer.toString(lineNumber));
+			lineID.setAttributeNode(attrType2);
+			cobolname.appendChild(lineID);
+			
+			// insert value of constant into XML file
+			Element value = doc.createElement(variableName);
+			Attr attrType3 = doc.createAttribute("Info");
+			attrType3.setValue(variableInfo);
 			value.setAttributeNode(attrType3);
 			cobolname.appendChild(value);
 			

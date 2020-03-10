@@ -34,6 +34,8 @@ public class Cobol implements PubliclyCloneable {
 	protected String constantName;
 	protected double constantValue;
 	protected int lineNumber = 0;
+	protected String variableName;
+	protected String variableInfo;
 	
 	/**
 	 * Return a copy of this object.
@@ -282,6 +284,20 @@ public class Cobol implements PubliclyCloneable {
 	}
 	
 	
+	
+	
+	public String getVariableName() {
+		return variableName;
+	}
+	public void setVariableName(String variableName) {
+		this.variableName = variableName;
+	}
+	public String getVariableInfo() {
+		return variableInfo;
+	}
+	public void setVariableInfo(String variableInfo) {
+		this.variableInfo = variableInfo;
+	}
 	/**
 	 * Return a textual description of this cobol type.
 	 * 

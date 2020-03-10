@@ -64,6 +64,8 @@ public class CobolParser {
 		
 		a.add( constantValue() );
 		
+		a.add( variableValue() );
+		
 	
 		
 		a.add(new Empty());
@@ -150,6 +152,23 @@ public class CobolParser {
 		s.add(new CaselessLiteral("value"));
 		s.add(new Num());
 		s.setAssembler(new ConstantValueAssembler());
+		return s;
+	}
+	
+	/*
+	 * Return a parser that will recognise the grammar:
+	 * 
+	 * 		<line number> <variable name> "pic" <variable data-type(variable length)>
+	 * 
+	 */
+	protected Parser variableValue() {
+		Sequence s = new Sequence();
+		s.add(new Num());
+		s.add(new Word());
+		s.add(new CaselessLiteral("pic"));
+		s.add(new Word());
+		s.add(new Symbol('.').discard());
+		s.setAssembler(new VariableValueAssembler());
 		return s;
 	}
 

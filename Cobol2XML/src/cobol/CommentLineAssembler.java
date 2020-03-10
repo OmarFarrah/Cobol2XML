@@ -17,7 +17,7 @@ public class CommentLineAssembler extends Assembler{
 		
 		if(t.sval() != null) {
 			c.setCommentLine(t.sval().trim()+ defaultDelimiter() + a.remainder(defaultDelimiter()));
-			System.out.println(t.sval());
+			//System.out.println(t.sval());
 			a.setTarget(c);
 		}
 		
