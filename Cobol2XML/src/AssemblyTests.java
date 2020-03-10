@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 import org.junit.Test;
@@ -17,45 +18,31 @@ public class AssemblyTests {
 
 	@Test
 	public void testAssemblyTokens() {
-		Tokenizer t = CobolParser.tokenizer();
-		Parser p = CobolParser.start();
-		
-//		t.setString("19 age value 12.");
 		Assembly tA = new TokenAssembly("19 age value 12.");
+		ArrayList<Token> tArray = new ArrayList<Token>();
 		
 		for(int i=0; i < tA.length(); i++) {
-			System.out.println((Token) tA.nextElement());
+//			System.out.println((Token) tA.nextElement());
+			tArray.add((Token) tA.nextElement());
 		}
 		
-//		assertEquals(tA.remainder(" "), "19 age value 12.");
-		
-		t.setString("19 value 12.");
-		Assembly tA2 = new TokenAssembly(t);
-		
-		assertNotEquals(tA2.length(), 4);
-		
-
-//		Assembly in = new TokenAssembly(t); //Pass token into an Assembly (sort of an array of tokens)
-//		Assembly out = p.bestMatch(in);
-		
-//		System.out.println(tA.length());
-		
-//		assertEquals(out.elementsConsumed(), 4);
-		
-		//Object notation diagrams
+//		System.out.println(tArray.get(0) + " " + tArray.get(3));
+		assertEquals(tArray.get(0) + " " + tArray.get(3),19.0 +" "+12.0);
 	}
 	
 	@Test
-	public void assemblyDescriptionTest(){
-		Tokenizer t = CobolParser.tokenizer();
+	public void testAssemblyTokens2(){
+		Assembly tA = new TokenAssembly("19 age value 12.");
+		ArrayList<Token> tArray = new ArrayList<Token>();
 		
-		t.setString("19 age value 12.");
-		Assembly tA = new TokenAssembly(t);
+		for(int i=0; i < tA.length(); i++) {
+//			System.out.println((Token) tA.nextElement());
+			tArray.add((Token) tA.nextElement());
+		}
 		
-		
-		assertEquals(tA.toString(), "[]^19.0/age/value/12.0");
-		
-		assertNotEquals(tA.toString(), "[]^");
+//		System.out.println(tArray.get(0) + " " + tArray.get(3));
+		//Test that tokens stored do not match 19.0 and 12.0 (19.0 will match but 12.0 should not)
+		assertNotEquals(tArray.get(0) + " " + tArray.get(2),19.0 +" "+ 12.0);
 	}
 	
 	
