@@ -15,21 +15,25 @@ public class TokeinzerTests {
 
 	@Test
 	public void testTokenizer() {
-		Tokenizer t = CobolParser.tokenizer();
-		Parser p = CobolParser.start();
+		//Tokenizer t = CobolParser.tokenizer();
+		//Parser p = CobolParser.start();
 		
-//		t.setCharacterState(   0,   ' ', new WhitespaceState());
+//		//t.setCharacterState(   0,   ' ', new WhitespaceState());
 		
-		t.setString("program-id. base_jb12");
-		Assembly in = new TokenAssembly(t);
-		Assembly out = p.bestMatch(in);
+		//t.setString("program-id. base_jb12");
+		//Assembly in = new TokenAssembly(t);
+		//Assembly out = p.bestMatch(in);
 	
-		Cobol c = new Cobol();
-		c = (Cobol) out.getTarget();
+		//Cobol c = new Cobol();
+		//c = (Cobol) out.getTarget();
 		
-		assertEquals(c.getProgram_ID(), "base_jb12");
+		//assertEquals(c.getProgram_ID(), "base_jb12");
 		
-		
+
+                //Tokenises a string and returns the token
+		Tokenizer t = new Tokenizer("test");
+                System.out.println((Token) t.nextToken());
+
 		
 		//Testing Token Assembly
 		System.out.println("Test");
