@@ -8,6 +8,7 @@ import cobol.Cobol;
 import cobol.CobolParser;
 import parse.Assembly;
 import parse.Parser;
+import parse.tokens.Num;
 import parse.tokens.Token;
 import parse.tokens.TokenAssembly;
 import parse.tokens.Tokenizer;
@@ -22,7 +23,9 @@ public class AssemblyTests {
 //		t.setString("19 age value 12.");
 		Assembly tA = new TokenAssembly("19 age value 12.");
 		
-		System.out.println()
+		for(int i=0; i < tA.length(); i++) {
+			System.out.println((Token) tA.nextElement());
+		}
 		
 //		assertEquals(tA.remainder(" "), "19 age value 12.");
 		
@@ -38,6 +41,8 @@ public class AssemblyTests {
 //		System.out.println(tA.length());
 		
 //		assertEquals(out.elementsConsumed(), 4);
+		
+		//Object notation diagrams
 	}
 	
 	@Test
