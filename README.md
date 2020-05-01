@@ -9,8 +9,9 @@ cobol2xml "C:\\Users\\<your user name>\\git\\cobol2xml\\base.cbl" "C:\\Users\\<y
     <ol>
       <h2>To Do List:</h2>
       <li>Variables</li>
-      <li>Base-to-Decimal</li>
-      <li>Decimal-to-Base</li>
-      <li>Remarks (possibly)</li>
+      <li>Remarks</li>
+      <li>display</li>
+      <li>move</li>
+
      </ol>
   </div>
